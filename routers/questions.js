@@ -27,7 +27,6 @@ router.post('/questions', async (req, res) => {
 		//const oldQuestion = await Question.find({"question":req.body['question']})
 		//console.log(oldQuestion)
 		//if(oldQuestion.length > 0)	return res.send('Question already exists')
-		console.log(req.body)
 		const questions = new Question(req.body)
 		await questions.save()
 		res.status(201).send('Question Added')

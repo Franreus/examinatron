@@ -13,7 +13,12 @@ fetch('/api/questions')
 			<p><b>${question['question']}</b></p>
 			<ul>${answers}</ul>
 		</div>`
-		console.log(answers)
 	});
+	const answers = document.querySelectorAll('.question ul li')
+	answers.forEach(answer => {
+		answer.addEventListener('click', function(e){
+			this.parentNode.querySelectorAll('li').forEach(answerParent => (answerParent.dataset.correct === '1' ? answerParent.classList = 'correct' : answerParent.classList = 'incorrect'))
+		})
+	})
 })
 .catch(e => console.log(e))

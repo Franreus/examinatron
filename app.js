@@ -26,14 +26,19 @@ app.use((req, res, next) => {
 	next();
 });
 
+app.get('/', (req, res) => {
+	res.render('index', { title: 'Quizz questions'});
+});
+
+app.get('/form-quizz', (req, res) => {
+	res.render('form-quizz', { title: 'Quizz questions'});
+});
+
 //Api
 const questionsRouter = require('./routers/questions')
 app.use(express.json())
 app.use('/api', questionsRouter)
 
-app.get('/', (req, res) => {
-	res.render('index', { title: 'Quizz questions'});
-});
 
 // 404 page
 app.use((req, res) => {

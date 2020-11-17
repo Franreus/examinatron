@@ -97,11 +97,18 @@
 	}
 
 	.questions{
+		display: grid;
+		grid-template-columns: calc(33% - 6px) calc(33% - 6px) calc(33% - 6px);
+		grid-row-gap: 50px;
+		grid-column-gap: 20px;
+	}
+
+	.form-quizz{
 		width: 100%;
+		text-align: center;
 	}
 
 	.question{
-		width: calc(33% - 2px);
 		border: 1px solid black;
 		display: inline-block;
 	}
@@ -120,9 +127,27 @@
 	.question ul li{
 		padding: 10px;
 		margin: 5px 0px;
-		border-radius: 10px;
+		border-top: 1px solid black;
+		cursor: pointer;
 	}
 
 	.question ul li:hover{
-		background-color: grey;
+		background-color: cadetblue;
+	}
+
+	.question ul li.correct{
+		background-color: green;
+	}
+
+	.question ul li.incorrect{
+		background-color: red;
+	}
+
+	.question ul li.correct:hover{
+		clear: both;
+		background-color: green;
+	}
+	
+	.question ul li.incorrect:hover{
+		background-color: red;
 	}
