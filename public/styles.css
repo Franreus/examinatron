@@ -111,6 +111,7 @@
 	.question{
 		border: 1px solid black;
 		display: inline-block;
+		height: fit-content;
 	}
 
 	.question ul{
