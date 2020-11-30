@@ -1,6 +1,6 @@
 const express = require('express')
 
-require('./db/mongoose')
+require('../db/mongoose')
 //const fishRouter = require('./routers/fish')
 
 const port = process.env.PORT
@@ -35,7 +35,7 @@ app.get('/form-quizz', (req, res) => {
 });
 
 //Api
-const questionsRouter = require('./routers/questions')
+const questionsRouter = require('../routers/questions')
 app.use(express.json())
 app.use('/api', questionsRouter)
 
