@@ -1,6 +1,9 @@
 const questions = document.querySelector('.questions')
 localStorage.setItem("results", ``)
-fetch('/api/questions/haha@gmail.com&testtest')
+const user = prompt("Please enter your email", "")
+const password = prompt("Please enter your password", "")
+
+fetch(`/api/questions/${user}&${password}`)
 .then(res => res.json())
 .then(data => {
 	if(data.length == 0) questions.innerHTML = 'There are no questions'

@@ -1,3 +1,4 @@
+const {getHashPassword,comparePassword} = require('../src/utils')
 const express = require('express')
 const Question = require('../models/questions')
 const User = require('../models/users')
@@ -5,8 +6,8 @@ const router = new express.Router()
 
 router.get('/questions/:email&:password', async (req, res) => {
 	try {
-		const user = await User.find({"email":req.params.email,"password":req.params.password})
-		if (!user) return res.status(404).send()
+		const user = await User.findOne({"email":req.params.email})
+		if (!user || !await comparePassword(req.params.password,user.password)) return res.status(404).send()
 		const questions = await Question.find({})
 		if (!questions) return res.status(404).send()
 		return res.send(questions)

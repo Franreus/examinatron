@@ -10,7 +10,8 @@ const User = mongoose.model('Users', {
         type: String,
         required: true,
         trim: true,
-        lowercase: true,
+		lowercase: true,
+		unique: true,
         validate(value){
             if(!validator.isEmail(value)){
                 throw new Error('Email no es válido')
