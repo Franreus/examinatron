@@ -1,6 +1,6 @@
 const questions = document.querySelector('.questions')
 localStorage.setItem("results", ``)
-fetch('/api/questions')
+fetch('/api/questions/haha@gmail.com&testtest')
 .then(res => res.json())
 .then(data => {
 	if(data.length == 0) questions.innerHTML = 'There are no questions'

@@ -1,4 +1,6 @@
 const express = require('express')
+const questionsRouter = require('../routers/questions')
+const usersRouter = require('../routers/users')
 
 require('../db/mongoose')
 //const fishRouter = require('./routers/fish')
@@ -35,9 +37,8 @@ app.get('/form-quizz', (req, res) => {
 });
 
 //Api
-const questionsRouter = require('../routers/questions')
 app.use(express.json())
-app.use('/api', questionsRouter)
+app.use('/api', questionsRouter, usersRouter)
 
 
 // 404 page
